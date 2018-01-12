@@ -1,5 +1,5 @@
 # guest-wifi-scheduler
-Web-based tool that allows users to enable / disable a guest wifi network
+Web-based tool that allows users to securely enable / disable a guest wifi network.  Written in Python.
 
 # Use case:
 This tool will run on a minimal server and enables any user with login priviledges to enable/disable a guest wireless network running on a Cisco Wireless LAN controller.  Once scheduled, the user and IT team will be emailed the SSID and password.  The password will be rolled every time.
