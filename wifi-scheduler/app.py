@@ -34,7 +34,7 @@ def success():
         endtime=endtime.strftime('%Y-%m-%d %H:%M')
         password=random.choice(adjs)+random.choice(nouns)
         rows=db.view()
-        ssid="CBT-guest"
+        ssid="YOUR_SSID"
         conflict=0
         for row in rows:
             if pandas.to_datetime(starttime)>pandas.to_datetime(row[2]):
