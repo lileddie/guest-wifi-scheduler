@@ -11,34 +11,34 @@ The network device is a Cisco Wireless LAN controller.  Although this can easily
 The server hosting the application is Linux.  This was implemented no CentOS7.
 
 # Requirements:
-*Apache
-*Python3.6
-*SSL certificate
+*Apache  
+*Python3.6  
+*SSL certificate  
 
 # Python Requirements:
-##pip3 install of the following:
-*sqlite3
-*datetime
-*pandas
-*netmiko
-*flask
-*gunicorn
+##pip3 install of the following:  
+*sqlite3  
+*datetime  
+*pandas  
+*netmiko  
+*flask  
+*gunicorn  
 
 # IMPLEMENTATION:
-/bin/pip3.6 install sqlite3 datetime pandas netmiko flask
-cp wifi-scheduler /opt/
-cp wifi-enabler.service /etc/systemd/system/
-cp wifi-webfront.service /etc/systemd/system/
-chmod 644 /opt/wifi-scheduler/app.py /opt/wifi-scheduler/wsgi.py /opt/wifi-scheduler/wifi_enabler.py /opt/wifi-scheduler/emailsend.py
-vi /opt/wifi-scheduler/deets.py  #ENTER your email, login info, WLC IP address
-yum -y install httpd
-cp wifi-scheduler.conf /var/httpd/conf.d/
-vi /var/httpd/conf.d/wifi-scheduler.conf #ENTER the config for your implentation -- hostname, AD info, etc...
-systemctl daemon-reload
-systemctl enable wifi-enabler.service
-systemctl enable wifi-webfront.service
-systemctl start wifi-enabler.service
-systemctl start wifi-webfront.service
-
+/bin/pip3.6 install sqlite3 datetime pandas netmiko flask  
+cp wifi-scheduler /opt/  
+cp wifi-enabler.service /etc/systemd/system/  
+cp wifi-webfront.service /etc/systemd/system/  
+chmod 644 /opt/wifi-scheduler/app.py /opt/wifi-scheduler/wsgi.py /opt/wifi-scheduler/wifi_enabler.py /opt/wifi-scheduler/emailsend.py  
+vi /opt/wifi-scheduler/deets.py  #ENTER your email, login info, WLC IP address  
+yum -y install httpd  
+cp wifi-scheduler.conf /var/httpd/conf.d/  
+vi /var/httpd/conf.d/wifi-scheduler.conf #ENTER the config for your implentation -- hostname, AD info, etc...  
+systemctl daemon-reload  
+systemctl enable wifi-enabler.service  
+systemctl enable wifi-webfront.service  
+systemctl start wifi-enabler.service  
+systemctl start wifi-webfront.service  
+  
 # Fruits of thine labor:
 Enjoy never being bothered to enable the Guest Wifi again.  Take the afternoon off, you've earned it my friend.
