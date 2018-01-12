@@ -37,16 +37,26 @@ def success():
         ssid="YOUR_SSID"
         conflict=0
         for row in rows:
-            if pandas.to_datetime(starttime)>pandas.to_datetime(row[2]):
-                if pandas.to_datetime(starttime)<pandas.to_datetime(row[3]):
-                    error=row[0]
-                    conflict=1
-                    return render_template("error.html", error=error)
-            if pandas.to_datetime(endtime)<pandas.to_datetime(row[3]):
-                if pandas.to_datetime(endtime)>pandas.to_datetime(row[2]):
-                    error=row[0]
-                    conflict=1
-                    return render_template("error.html", error=error)
+            userstarttime=pandas.to_datetime(starttime)
+            userendtime=pandas.to_datetime(endtime)
+            dbstarttime=pandas.to_datetime(row[2])
+            dbendtime=pandas.to_datetime(row[3])
+            if userstarttime>dbstarttime and userstarttime<dbendtime:
+                error=row[0]
+                conflict=1
+                return render_template("error.html", error=error)
+            if userstarttime>dbstarttime and userstarttime<dbendtime and  userendtime>dbendtime:
+                error=row[0]
+                conflict=1
+                return render_template("error.html", error=error)
+            if userendtime<dbendtime and userendtime>dbstarttime:
+                error=row[0]
+                conflict=1
+                return render_template("error.html", error=error)
+            if userstarttime<dbstarttime and userstarttime<dbendtime and userendtime>dbendtime:
+                error=row[0]
+                conflict=1
+                return render_template("error.html", error=error)
         if conflict==0:
             db.insert(user,starttime,endtime,duration,password)
             mail.mails(user,starttime,endtime,password,ssid)
