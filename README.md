@@ -1,6 +1,6 @@
 # Guest Wifi Scheduler
 
-This tool runs on a server and allows anyone with an AD account to schedule the Guest WIFI for up to 8 hours.  The WIFI password is rolled each time and emailed to the user & the IT team.
+This tool runs on a Linux server and allows anyone with an AD account to schedule the Guest WIFI for up to 8 hours.  The WIFI password is rolled each time and emailed to the user & the IT team.
 
 <p align="center">
   <img src="https://github.com/lileddie/guest-wifi-scheduler/blob/master/images/guest-wifi-scheduler.png" alt="screenshot">
