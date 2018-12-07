@@ -4,4 +4,4 @@ DateTime==4.2
 netmiko==2.0.1
 gunicorn==19.7.1
 Werkzeug==0.14.1
-paramiko==2.4.0
+paramiko==2.4.1
